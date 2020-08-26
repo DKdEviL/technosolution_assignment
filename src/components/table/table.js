@@ -18,10 +18,11 @@ function table (props) {
     }
 
     function addFun(data){
-        let color = "black";
+        let color = "#000";
         const totalMarks = parseInt(data.marks.Maths) + parseInt(data.marks.English) + parseInt(data.marks.Science);
+        
         if(!(parseInt(data.marks.Maths) >= 20 && parseInt(data.marks.English) >= 20 && parseInt(data.marks.Science))){
-            color = "red"
+            color = "#ff0000"
         }
         if(totalMarks > maximum){
             maximum = totalMarks;
