@@ -1,0 +1,32 @@
+.form-component {
+    color: black;
+}
+.form {
+    border: black 2px solid;
+    width: 700px;
+}
+.form > label {
+    margin-left: 5px;
+    text-align: left;
+    align-content: center;
+    float: left;
+    width: 100%;
+}
+.form > label > input {
+    float: right;
+    height: 24px !important;
+    margin: 10px;
+    align-content: center;
+}
+.simple:focus {
+    box-shadow: 0 4px 6px 0 palegreen;
+}
+.error{
+    box-shadow: 0 4px 6px 0 orangered;
+    border: 1px solid orangered;
+}
+.button {
+    font-size: 18px;
+    margin: 10px;
+
+}
