@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './studentForm.css'
+import Modal from '../../modal/modal';
+import './studentForm.css';
 
 class studentForm extends Component{
     constructor(props){
@@ -7,12 +8,16 @@ class studentForm extends Component{
         this.state = {
             fields: {},
             errors: {},
+            showModal: false
         }
     }
 
     dataSubmit(event){
         event.preventDefault();
-        alert("Smitted")
+        this.setState({showModal: !this.state.showModal})
+    }
+    modalHandler(){
+        this.setState({showModal: !this.state.showModal})
     }
 
     handleChange(field, e){
@@ -81,7 +86,6 @@ class studentForm extends Component{
 
     validateForm (errors)  {
         let valid = true;
-        console.log(errors);
         Object.values(errors).forEach((value) => {
             value.length > 0 && (valid = false)
         })
@@ -95,7 +99,7 @@ class studentForm extends Component{
         let isEnabled = this.validateForm(errors) ? false : true;
         return(
             <div className="form-component">
-                <form name="studentForm" className="form" >
+                <form name="studentForm" className="form" onSubmit={this.dataSubmit.bind(this)}>
                     <label>First Name:
                         <input
                             required 
@@ -150,6 +154,10 @@ class studentForm extends Component{
                     <input disabled={isEnabled} className="button"  type="submit" value="submit" onSubmit={this.dataSubmit.bind(this)} />
                     
                 </form>
+                <Modal show={this.state.showModal} modalClosed={this.modalHandler.bind(this)}>
+                    
+                        <article>Hello, {this.state.fields.fname}. Thank you for passing {this.state.fields.class} in the year {this.state.fields.yop} with {this.state.fields.percent} percentage.</article>
+                </Modal>
             </div>
         )
     }

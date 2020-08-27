@@ -22,7 +22,7 @@ const Modal = props => {
                 </div>
                 <footer className="modal-Footer">
                     <div className="okay">
-                        <img src="https://image.flaticon.com/icons/svg/3248/3248235.svg" alt="Okay Button" />
+                        <img src="https://image.flaticon.com/icons/svg/3248/3248235.svg" alt="Okay Button" onClick={props.modalClosed} />
                     </div>
                 </footer>
             </div>
